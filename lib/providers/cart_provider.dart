@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import '../models/store.dart';
 import '../models/product.dart';
 import '../models/live_order.dart';
@@ -20,8 +21,10 @@ class CartProvider extends ChangeNotifier {
 
   final Map<String, int> _cartQuantities = {};
   final LiveOrderModel _liveOrder = LiveOrderModel.sampleLiveOrder;
-  ReplacementPreferenceModel _preferences = ReplacementPreferenceModel.samplePreferences;
-  ReplacementDecisionStatus _replacementDecision = ReplacementDecisionStatus.pending;
+  ReplacementPreferenceModel _preferences =
+      ReplacementPreferenceModel.samplePreferences;
+  ReplacementDecisionStatus _replacementDecision =
+      ReplacementDecisionStatus.pending;
   String? _selectedReplacementId;
 
   bool _hasActiveOrder = false;
@@ -62,7 +65,9 @@ class CartProvider extends ChangeNotifier {
           }
         }
       }
-      prod ??= _products.isNotEmpty ? _products.first : ProductModel.sampleProducts.first;
+      prod ??= _products.isNotEmpty
+          ? _products.first
+          : ProductModel.sampleProducts.first;
       total += prod.price * qty;
     });
     return total;
@@ -78,17 +83,21 @@ class CartProvider extends ChangeNotifier {
       if (fetched.isNotEmpty) {
         _stores = fetched;
         _selectedStore = _stores.first;
-        print('[CartProvider.fetchStores] Auto-selected first store: ${_selectedStore.name} (${_selectedStore.id})');
+        debugPrint(
+          '[CartProvider.fetchStores] Auto-selected first store: ${_selectedStore.name} (${_selectedStore.id})',
+        );
         await fetchProductsForStore(_selectedStore.id);
       } else {
-        print('[CartProvider.fetchStores] Empty stores fetched, using fallback sample stores');
+        debugPrint(
+          '[CartProvider.fetchStores] Empty stores fetched, using fallback sample stores',
+        );
         _stores = StoreModel.sampleStores;
         _selectedStore = _stores.first;
         await fetchProductsForStore(_selectedStore.id);
       }
     } catch (e) {
       _storesError = e.toString();
-      print('[CartProvider.fetchStores] Error: $_storesError');
+      debugPrint('[CartProvider.fetchStores] Error: $_storesError');
       _stores = StoreModel.sampleStores;
       _selectedStore = _stores.first;
       await fetchProductsForStore(_selectedStore.id);
@@ -107,14 +116,18 @@ class CartProvider extends ChangeNotifier {
       final fetched = await _supabaseService.fetchStoreInventory(storeId);
       if (fetched.isNotEmpty) {
         _products = fetched;
-        print('[CartProvider.fetchProductsForStore] Loaded ${_products.length} products for store: $storeId');
+        debugPrint(
+          '[CartProvider.fetchProductsForStore] Loaded ${_products.length} products for store: $storeId',
+        );
       } else {
-        print('[CartProvider.fetchProductsForStore] Empty products fetched, using fallback sample products');
+        debugPrint(
+          '[CartProvider.fetchProductsForStore] Empty products fetched, using fallback sample products',
+        );
         _products = ProductModel.sampleProducts;
       }
     } catch (e) {
       _productsError = e.toString();
-      print('[CartProvider.fetchProductsForStore] Error: $_productsError');
+      debugPrint('[CartProvider.fetchProductsForStore] Error: $_productsError');
       _products = ProductModel.sampleProducts;
     } finally {
       _isLoadingProducts = false;
@@ -165,7 +178,8 @@ class CartProvider extends ChangeNotifier {
     _preferences = ReplacementPreferenceModel(
       defaultStrategy: strategy,
       allowPriceIncreaseUpTo20Pct: _preferences.allowPriceIncreaseUpTo20Pct,
-      preferOrganicIfOriginalOrganic: _preferences.preferOrganicIfOriginalOrganic,
+      preferOrganicIfOriginalOrganic:
+          _preferences.preferOrganicIfOriginalOrganic,
       categoryPreferences: _preferences.categoryPreferences,
     );
     notifyListeners();
@@ -175,7 +189,8 @@ class CartProvider extends ChangeNotifier {
     _preferences = ReplacementPreferenceModel(
       defaultStrategy: _preferences.defaultStrategy,
       allowPriceIncreaseUpTo20Pct: val,
-      preferOrganicIfOriginalOrganic: _preferences.preferOrganicIfOriginalOrganic,
+      preferOrganicIfOriginalOrganic:
+          _preferences.preferOrganicIfOriginalOrganic,
       categoryPreferences: _preferences.categoryPreferences,
     );
     notifyListeners();

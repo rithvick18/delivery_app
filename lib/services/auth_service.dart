@@ -47,7 +47,7 @@ class AuthService {
 
       return response;
     } catch (e) {
-      print(
+      debugPrint(
         '[AuthService.signInWithGoogle] Error: $e. Attempting OAuth fallback...',
       );
       await _supabase.auth.signInWithOAuth(OAuthProvider.google);
@@ -62,7 +62,7 @@ class AuthService {
         await googleSignIn.signOut();
       }
     } catch (e) {
-      print('[AuthService.signOut] Google sign out notice: $e');
+      debugPrint('[AuthService.signOut] Google sign out notice: $e');
     }
     await _supabase.auth.signOut();
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'package:flutter/foundation.dart';
 import '../models/delivery_order.dart';
 import '../models/driver_profile.dart';
 import '../services/supabase_service.dart';
@@ -8,11 +9,9 @@ import '../services/auth_service.dart';
 class DeliveryProvider extends ChangeNotifier {
   final SupabaseService _supabaseService = SupabaseService();
   final AuthService _authService = AuthService();
-  StreamSubscription<List<Map<String, dynamic>>>? _ordersSubscription;
-
   DriverProfileModel _driver = DriverProfileModel.sampleDriver;
   List<DeliveryOrderModel> _availableOrders = [];
-  List<DeliveryOrderModel> _completedOrders = [];
+  final List<DeliveryOrderModel> _completedOrders = [];
   DeliveryOrderModel? _activeOrder;
 
   bool _isLoading = false;
@@ -51,15 +50,37 @@ class DeliveryProvider extends ChangeNotifier {
         // Set up realtime order subscription
         _setupRealtimeOrders();
 
-        // Load initial available orders
+        // Load initial available orders and ensure we have data
         await _loadAvailableOrders();
+
+        // If no orders are available, generate sample data for testing
+        if (_availableOrders.isEmpty) {
+          _availableOrders = List.from(DeliveryOrderModel.sampleOrders);
+          debugPrint(
+            '[DeliveryProvider._initWithLiveData] No pending orders found, using sample data',
+          );
+        }
       }
     } catch (e) {
       _errorMessage = 'Failed to load data: ${e.toString()}';
-      print('[DeliveryProvider._initWithLiveData] Error: $e');
+      debugPrint('[DeliveryProvider._initWithLiveData] Error: $e');
     } finally {
       _isLoading = false;
       notifyListeners();
+    }
+  }
+
+  Future<void> _loadAvailableOrders() async {
+    try {
+      _availableOrders = await _supabaseService.fetchAvailableOrders();
+      debugPrint(
+        '[DeliveryProvider._loadAvailableOrders] Loaded ${_availableOrders.length} available orders',
+      );
+    } catch (e) {
+      _errorMessage = 'Failed to load available orders: ${e.toString()}';
+      debugPrint('[DeliveryProvider._loadAvailableOrders] Error: $e');
+      // Fallback to sample data if there's an error
+      _availableOrders = List.from(DeliveryOrderModel.sampleOrders);
     }
   }
 
@@ -94,7 +115,7 @@ class DeliveryProvider extends ChangeNotifier {
       }
     } catch (e) {
       _errorMessage = 'Failed to load driver profile: ${e.toString()}';
-      print('[DeliveryProvider._loadDriverProfile] Error: $e');
+      debugPrint('[DeliveryProvider._loadDriverProfile] Error: $e');
     }
   }
 
@@ -114,7 +135,7 @@ class DeliveryProvider extends ChangeNotifier {
   }
 
   void _setupRealtimeOrders() {
-    _ordersSubscription = _supabaseService.streamAvailableOrders().listen(
+    _supabaseService.streamAvailableOrders().listen(
       (ordersData) {
         final newOrders = ordersData
             .map((data) => DeliveryOrderModel.fromMap(data))
@@ -128,7 +149,7 @@ class DeliveryProvider extends ChangeNotifier {
       },
       onError: (error) {
         _errorMessage = 'Realtime orders error: ${error.toString()}';
-        print('[DeliveryProvider._setupRealtimeOrders] Error: $error');
+        debugPrint('[DeliveryProvider._setupRealtimeOrders] Error: $error');
       },
     );
   }
@@ -141,15 +162,6 @@ class DeliveryProvider extends ChangeNotifier {
     }
 
     return false;
-  }
-
-  Future<void> _loadAvailableOrders() async {
-    try {
-      _availableOrders = await _supabaseService.fetchAvailableOrders();
-    } catch (e) {
-      _errorMessage = 'Failed to load available orders: ${e.toString()}';
-      print('[DeliveryProvider._loadAvailableOrders] Error: $e');
-    }
   }
 
   Future<void> toggleOnlineStatus() async {
@@ -171,7 +183,7 @@ class DeliveryProvider extends ChangeNotifier {
       }
     } catch (e) {
       _errorMessage = 'Error updating online status: ${e.toString()}';
-      print('[DeliveryProvider.toggleOnlineStatus] Error: $e');
+      debugPrint('[DeliveryProvider.toggleOnlineStatus] Error: $e');
     }
     notifyListeners();
   }
@@ -220,7 +232,7 @@ class DeliveryProvider extends ChangeNotifier {
       return false;
     } catch (e) {
       _errorMessage = 'Error accepting order: ${e.toString()}';
-      print('[DeliveryProvider.acceptOrder] Error: $e');
+      debugPrint('[DeliveryProvider.acceptOrder] Error: $e');
       notifyListeners();
       return false;
     }
@@ -294,7 +306,7 @@ class DeliveryProvider extends ChangeNotifier {
         }
       } catch (e) {
         _errorMessage = 'Error updating order status: ${e.toString()}';
-        print('[DeliveryProvider.updateOrderStatus] Error: $e');
+        debugPrint('[DeliveryProvider.updateOrderStatus] Error: $e');
       }
       notifyListeners();
     }
@@ -321,7 +333,7 @@ class DeliveryProvider extends ChangeNotifier {
         }
       } catch (e) {
         _errorMessage = 'Error updating item status: ${e.toString()}';
-        print('[DeliveryProvider.markItemPicked] Error: $e');
+        debugPrint('[DeliveryProvider.markItemPicked] Error: $e');
       }
       notifyListeners();
     }
@@ -365,7 +377,7 @@ class DeliveryProvider extends ChangeNotifier {
         }
       } catch (e) {
         _errorMessage = 'Error updating item status: ${e.toString()}';
-        print('[DeliveryProvider.markItemOutOfStock] Error: $e');
+        debugPrint('[DeliveryProvider.markItemOutOfStock] Error: $e');
       }
       notifyListeners();
     }
@@ -388,7 +400,7 @@ class DeliveryProvider extends ChangeNotifier {
         }
       } catch (e) {
         _errorMessage = 'Error completing delivery: ${e.toString()}';
-        print('[DeliveryProvider.completeDeliveryWithProof] Error: $e');
+        debugPrint('[DeliveryProvider.completeDeliveryWithProof] Error: $e');
         notifyListeners();
       }
     }

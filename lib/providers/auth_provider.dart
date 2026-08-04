@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../services/auth_service.dart';
 
@@ -50,10 +51,12 @@ class AuthProvider extends ChangeNotifier {
 
   Future<void> _syncUserProfile(User user) async {
     try {
-      final String fullName = user.userMetadata?['full_name'] ??
+      final String fullName =
+          user.userMetadata?['full_name'] ??
           user.userMetadata?['name'] ??
           (user.email != null ? user.email!.split('@').first : 'User');
-      final String? avatarUrl = user.userMetadata?['avatar_url'] ?? user.userMetadata?['picture'];
+      final String? avatarUrl =
+          user.userMetadata?['avatar_url'] ?? user.userMetadata?['picture'];
 
       final profileData = {
         'id': user.id,
@@ -79,18 +82,25 @@ class AuthProvider extends ChangeNotifier {
         _profile = profileData;
       }
     } catch (e) {
-      print('[AuthProvider._syncUserProfile] Profile upsert notice: $e');
+      debugPrint('[AuthProvider._syncUserProfile] Profile upsert notice: $e');
       _profile = {
         'id': user.id,
         'email': user.email,
-        'full_name': user.userMetadata?['full_name'] ?? user.userMetadata?['name'] ?? user.email?.split('@').first,
-        'avatar_url': user.userMetadata?['avatar_url'] ?? user.userMetadata?['picture'],
+        'full_name':
+            user.userMetadata?['full_name'] ??
+            user.userMetadata?['name'] ??
+            user.email?.split('@').first,
+        'avatar_url':
+            user.userMetadata?['avatar_url'] ?? user.userMetadata?['picture'],
       };
     }
     notifyListeners();
   }
 
-  Future<bool> signInWithGoogle({String? webClientId, String? iosClientId}) async {
+  Future<bool> signInWithGoogle({
+    String? webClientId,
+    String? iosClientId,
+  }) async {
     _isLoading = true;
     _errorMessage = null;
     notifyListeners();

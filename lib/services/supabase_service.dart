@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../models/store.dart';
 import '../models/product.dart';
@@ -27,17 +28,19 @@ class SupabaseService {
 
       final list = (response as List).cast<Map<String, dynamic>>();
       // Print exact response length as requested
-      print('[SupabaseService.fetchStores] Response length: ${list.length}');
+      debugPrint(
+        '[SupabaseService.fetchStores] Response length: ${list.length}',
+      );
       if (list.isEmpty) {
-        print(
+        debugPrint(
           '[SupabaseService.fetchStores] Warning: Supabase returned 0 stores.',
         );
       }
       return list.map((map) => StoreModel.fromMap(map)).toList();
     } catch (e, stack) {
       // Print exact error message as requested
-      print('[SupabaseService.fetchStores] Error fetching stores: $e');
-      print(stack);
+      debugPrint('[SupabaseService.fetchStores] Error fetching stores: $e');
+      debugPrint(stack.toString());
       return [];
     }
   }
@@ -47,7 +50,7 @@ class SupabaseService {
       r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',
     ).hasMatch(storeId);
     if (!isUuid) {
-      print(
+      debugPrint(
         '[SupabaseService.fetchStoreInventory] Non-UUID store_id: "$storeId" passed. Skipping Supabase query.',
       );
       return [];
@@ -61,21 +64,21 @@ class SupabaseService {
 
       final list = (response as List).cast<Map<String, dynamic>>();
       // Print exact response length as requested
-      print(
+      debugPrint(
         '[SupabaseService.fetchStoreInventory] store_id: $storeId | Response length: ${list.length}',
       );
       if (list.isEmpty) {
-        print(
+        debugPrint(
           '[SupabaseService.fetchStoreInventory] Warning: Supabase returned 0 inventory items for store_id: $storeId.',
         );
       }
       return list.map((map) => ProductModel.fromInventoryMap(map)).toList();
     } catch (e, stack) {
       // Print exact error message as requested
-      print(
+      debugPrint(
         '[SupabaseService.fetchStoreInventory] Error fetching inventory for store_id $storeId: $e',
       );
-      print(stack);
+      debugPrint(stack.toString());
       return [];
     }
   }
@@ -95,10 +98,10 @@ class SupabaseService {
 
       return response;
     } catch (e, stack) {
-      print(
+      debugPrint(
         '[SupabaseService.fetchDriverProfile] Error fetching driver profile: $e',
       );
-      print(stack);
+      debugPrint(stack.toString());
       return null;
     }
   }
@@ -108,10 +111,10 @@ class SupabaseService {
       await client.from('profiles').upsert(profileData);
       return true;
     } catch (e, stack) {
-      print(
+      debugPrint(
         '[SupabaseService.updateDriverProfile] Error updating driver profile: $e',
       );
-      print(stack);
+      debugPrint(stack.toString());
       return false;
     }
   }
@@ -127,10 +130,10 @@ class SupabaseService {
           .eq('id', driverId);
       return true;
     } catch (e, stack) {
-      print(
+      debugPrint(
         '[SupabaseService.updateDriverOnlineStatus] Error updating online status: $e',
       );
-      print(stack);
+      debugPrint(stack.toString());
       return false;
     }
   }
