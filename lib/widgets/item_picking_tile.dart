@@ -38,10 +38,10 @@ class ItemPickingTile extends StatelessWidget {
           color: isPicked
               ? Colors.green.shade300
               : isOutOfStock
-                  ? Colors.red.shade300
-                  : isSubstituted
-                      ? Colors.amber.shade400
-                      : theme.colorScheme.outlineVariant.withOpacity(0.5),
+              ? Colors.red.shade300
+              : isSubstituted
+              ? Colors.amber.shade400
+              : theme.colorScheme.outlineVariant.withValues(alpha: 0.5),
         ),
       ),
       child: Padding(
@@ -61,7 +61,8 @@ class ItemPickingTile extends StatelessWidget {
                         ? Image.network(
                             item.imageUrl!,
                             fit: BoxFit.cover,
-                            errorBuilder: (_, __, ___) => const Icon(Icons.shopping_basket),
+                            errorBuilder: (context, error, stackTrace) =>
+                                const Icon(Icons.shopping_basket),
                           )
                         : const Icon(Icons.shopping_basket),
                   ),
@@ -77,12 +78,17 @@ class ItemPickingTile extends StatelessWidget {
                         item.name,
                         style: theme.textTheme.titleSmall?.copyWith(
                           fontWeight: FontWeight.bold,
-                          decoration: isPicked ? TextDecoration.lineThrough : null,
+                          decoration: isPicked
+                              ? TextDecoration.lineThrough
+                              : null,
                         ),
                       ),
                       const SizedBox(height: 4),
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 6,
+                          vertical: 2,
+                        ),
                         decoration: BoxDecoration(
                           color: Colors.amber.shade100,
                           borderRadius: BorderRadius.circular(6),
@@ -117,13 +123,21 @@ class ItemPickingTile extends StatelessWidget {
                   Chip(
                     label: const Text('OOS'),
                     backgroundColor: Colors.red.shade100,
-                    labelStyle: TextStyle(color: Colors.red.shade900, fontSize: 11, fontWeight: FontWeight.bold),
+                    labelStyle: TextStyle(
+                      color: Colors.red.shade900,
+                      fontSize: 11,
+                      fontWeight: FontWeight.bold,
+                    ),
                   )
                 else if (isSubstituted)
                   Chip(
                     label: const Text('Subbed'),
                     backgroundColor: Colors.amber.shade200,
-                    labelStyle: TextStyle(color: Colors.amber.shade900, fontSize: 11, fontWeight: FontWeight.bold),
+                    labelStyle: TextStyle(
+                      color: Colors.amber.shade900,
+                      fontSize: 11,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
               ],
             ),
@@ -134,7 +148,7 @@ class ItemPickingTile extends StatelessWidget {
                 width: double.infinity,
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: Colors.amber.shade100.withOpacity(0.6),
+                  color: Colors.amber.shade100.withValues(alpha: 0.6),
                   borderRadius: BorderRadius.circular(6),
                 ),
                 child: Text(
@@ -154,8 +168,15 @@ class ItemPickingTile extends StatelessWidget {
                 children: [
                   TextButton.icon(
                     onPressed: onMarkOutOfStock,
-                    icon: const Icon(Icons.remove_shopping_cart, size: 16, color: Colors.red),
-                    label: const Text('Out of Stock / Sub', style: TextStyle(color: Colors.red)),
+                    icon: const Icon(
+                      Icons.remove_shopping_cart,
+                      size: 16,
+                      color: Colors.red,
+                    ),
+                    label: const Text(
+                      'Out of Stock / Sub',
+                      style: TextStyle(color: Colors.red),
+                    ),
                   ),
                   const SizedBox(width: 8),
                   ElevatedButton.icon(

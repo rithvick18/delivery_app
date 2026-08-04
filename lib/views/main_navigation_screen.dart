@@ -41,6 +41,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                   _currentIndex = 1; // Auto switch to Active Delivery
                 });
               } else if (provider.errorMessage != null) {
+                if (!context.mounted) return;
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(provider.errorMessage!),

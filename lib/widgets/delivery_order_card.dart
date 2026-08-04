@@ -23,7 +23,7 @@ class DeliveryOrderCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
         side: BorderSide(
-          color: theme.colorScheme.outlineVariant.withOpacity(0.5),
+          color: theme.colorScheme.outlineVariant.withValues(alpha: 0.5),
         ),
       ),
       child: Container(
@@ -34,7 +34,7 @@ class DeliveryOrderCard extends StatelessWidget {
             end: Alignment.bottomRight,
             colors: [
               theme.colorScheme.surface,
-              theme.colorScheme.surfaceContainerHighest.withOpacity(0.3),
+              theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
             ],
           ),
         ),
@@ -48,7 +48,10 @@ class DeliveryOrderCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 4,
+                    ),
                     decoration: BoxDecoration(
                       color: theme.colorScheme.primaryContainer,
                       borderRadius: BorderRadius.circular(20),
@@ -62,7 +65,10 @@ class DeliveryOrderCard extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 6,
+                    ),
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [Colors.green.shade700, Colors.teal.shade600],
@@ -70,7 +76,7 @@ class DeliveryOrderCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.green.withOpacity(0.3),
+                          color: Colors.green.withValues(alpha: 0.3),
                           blurRadius: 6,
                           offset: const Offset(0, 2),
                         ),
@@ -79,7 +85,11 @@ class DeliveryOrderCard extends StatelessWidget {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Icon(Icons.attach_money, color: Colors.white, size: 18),
+                        const Icon(
+                          Icons.attach_money,
+                          color: Colors.white,
+                          size: 18,
+                        ),
                         Text(
                           order.totalPayout.toStringAsFixed(2),
                           style: theme.textTheme.titleMedium?.copyWith(
@@ -105,7 +115,7 @@ class DeliveryOrderCard extends StatelessWidget {
                       width: 44,
                       height: 44,
                       fit: BoxFit.cover,
-                      errorBuilder: (_, __, ___) => Container(
+                      errorBuilder: (context, error, stackTrace) => Container(
                         width: 44,
                         height: 44,
                         color: Colors.amber.shade100,
@@ -206,8 +216,12 @@ class DeliveryOrderCard extends StatelessWidget {
     );
   }
 
-  Widget _buildSpecChip(BuildContext context,
-      {required IconData icon, required String label, required String subLabel}) {
+  Widget _buildSpecChip(
+    BuildContext context, {
+    required IconData icon,
+    required String label,
+    required String subLabel,
+  }) {
     final theme = Theme.of(context);
     return Column(
       children: [
