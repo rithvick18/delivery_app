@@ -1,0 +1,285 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Solaris Gold | Backup Preferences</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Work+Sans:wght@400;500&amp;family=JetBrains+Mono:wght@600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..900&amp;family=Manrope:wght@100..900&amp;family=Work+Sans:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#2a1700",
+                        "secondary": "#904d00",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container-low": "#eff4ff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-fixed": "#dae2fd",
+                        "surface-container": "#e5eeff",
+                        "on-primary-fixed-variant": "#653e00",
+                        "outline": "#867461",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "on-surface": "#0b1c30",
+                        "inverse-primary": "#ffb95f",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#3b4358",
+                        "surface-container-highest": "#d3e4fe",
+                        "secondary-fixed": "#ffdcc3",
+                        "error-container": "#ffdad6",
+                        "surface": "#f8f9ff",
+                        "on-background": "#0b1c30",
+                        "surface-bright": "#f8f9ff",
+                        "on-surface-variant": "#534434",
+                        "secondary-fixed-dim": "#ffb77d",
+                        "tertiary-container": "#a9b0c9",
+                        "surface-tint": "#855300",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#ffb95f",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#663500",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#6e3900",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#f59e0b",
+                        "outline-variant": "#d8c3ad",
+                        "on-tertiary-fixed": "#131b2e",
+                        "primary": "#855300",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "inverse-surface": "#213145",
+                        "on-primary-container": "#613b00",
+                        "primary-fixed": "#ffddb8",
+                        "tertiary": "#565e74",
+                        "surface-dim": "#cbdbf5",
+                        "on-primary": "#ffffff",
+                        "background": "#f8f9ff",
+                        "surface-variant": "#d3e4fe",
+                        "on-secondary-fixed": "#2f1500",
+                        "secondary-container": "#fe932c",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "body-sm": ["Work Sans"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "body-md": ["Work Sans"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        .tonal-layer-1 {
+            background-color: #F8FAFC;
+            box-shadow: 0 4px 20px -2px rgba(245, 158, 11, 0.04);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(241, 245, 249, 1);
+        }
+        .button-active-state:active {
+            opacity: 0.8;
+            transform: scale(0.95);
+            transition: all 0.1s ease;
+        }
+        .option-card {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .option-card:hover {
+            border-color: #f59e0b;
+            background-color: #fffbeb;
+        }
+        .option-card.active {
+            border-color: #f59e0b;
+            border-width: 2px;
+            background-color: #fffbeb;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen font-body-md text-body-md flex flex-col">
+<!-- TopAppBar from Shared Components -->
+<header class="bg-surface-container-lowest dark:bg-surface-container-lowest shadow-sm dock full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" data-icon="location_on">location_on</span>
+<span class="text-headline-lg-mobile font-headline-lg-mobile font-extrabold text-primary dark:text-primary-fixed-dim md:font-headline-lg md:text-headline-lg">Solaris Gold</span>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-8">
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 px-3 py-1 rounded-lg" href="#">Home</a>
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 px-3 py-1 rounded-lg" href="#">Search</a>
+<a class="text-primary font-bold px-3 py-1 rounded-lg" href="#">Orders</a>
+</nav>
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed-dim hover:bg-surface-container-low p-2 rounded-full transition-all active:opacity-80 active:scale-95" data-icon="shopping_cart">shopping_cart</button>
+</div>
+</div>
+</header>
+<main class="flex-grow flex items-center justify-center p-margin-mobile md:p-margin-desktop relative overflow-hidden">
+<!-- Ambient Atmospheric Decoration -->
+<div class="absolute top-[-10%] right-[-10%] w-96 h-96 bg-primary-container opacity-10 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-5%] left-[-5%] w-64 h-64 bg-secondary-container opacity-5 blur-[100px] rounded-full"></div>
+<section class="max-w-[800px] w-full z-10">
+<!-- Modal/Content Container -->
+<div class="glass-card rounded-xl p-6 md:p-10 shadow-lg relative overflow-hidden">
+<!-- Stock Alert Banner -->
+<div class="mb-8 flex items-start gap-4 p-4 bg-error-container/30 border border-error-container rounded-lg">
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+<div>
+<h2 class="font-bold text-on-error-container">Low Stock Risk</h2>
+<p class="text-body-sm text-on-surface-variant">The item "Artisan Gold Leaf Espresso Set" is selling out quickly. Secure your order by choosing a backup preference.</p>
+</div>
+</div>
+<div class="space-y-2 mb-8 text-center md:text-left">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Set a replacement preference</h1>
+<p class="text-on-surface-variant">Select how you'd like us to handle your order if the original item becomes unavailable before fulfillment.</p>
+</div>
+<!-- Preference Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Option 1: AI Suggestion -->
+<button class="option-card active group relative flex flex-col items-start p-6 rounded-xl border border-outline-variant bg-surface-container-lowest text-left shadow-sm" onclick="selectOption(this)">
+<div class="mb-4 bg-primary-container/20 p-3 rounded-full text-primary group-hover:bg-primary-container group-hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<h3 class="font-bold text-on-surface mb-2">AI Suggestion</h3>
+<p class="text-body-sm text-on-surface-variant leading-relaxed">Our AI curator will select the closest match in quality and aesthetic value.</p>
+<div class="mt-4 flex items-center text-primary font-bold text-body-sm">
+<span>Recommended</span>
+<span class="material-symbols-outlined ml-1 text-sm" data-icon="verified">verified</span>
+</div>
+<div class="absolute top-4 right-4 text-primary opacity-100 checkmark">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</div>
+</button>
+<!-- Option 2: Choose Specific -->
+<button class="option-card group relative flex flex-col items-start p-6 rounded-xl border border-outline-variant bg-surface-container-lowest text-left shadow-sm" onclick="selectOption(this)">
+<div class="mb-4 bg-secondary-container/10 p-3 rounded-full text-secondary group-hover:bg-secondary-container group-hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+</div>
+<h3 class="font-bold text-on-surface mb-2">Specific Alternative</h3>
+<p class="text-body-sm text-on-surface-variant leading-relaxed">Browse our catalog now and pin a specific second choice for this order.</p>
+<div class="absolute top-4 right-4 text-primary opacity-0 checkmark">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</div>
+</button>
+<!-- Option 3: Refund -->
+<button class="option-card group relative flex flex-col items-start p-6 rounded-xl border border-outline-variant bg-surface-container-lowest text-left shadow-sm" onclick="selectOption(this)">
+<div class="mb-4 bg-on-surface-variant/10 p-3 rounded-full text-on-surface-variant group-hover:bg-on-surface-variant group-hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="undo">undo</span>
+</div>
+<h3 class="font-bold text-on-surface mb-2">Don't replace</h3>
+<p class="text-body-sm text-on-surface-variant leading-relaxed">Remove item from cart and issue an immediate refund if unavailable.</p>
+<div class="absolute top-4 right-4 text-primary opacity-0 checkmark">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</div>
+</button>
+</div>
+<!-- Replacement Preview Section (AI Suggested) -->
+<div class="mt-8 p-6 bg-surface-container-low rounded-xl border border-dashed border-outline-variant" id="ai-preview">
+<div class="flex flex-col md:flex-row gap-6 items-center">
+<div class="w-24 h-24 rounded-lg bg-cover bg-center shrink-0" data-alt="A high-end, minimalist photograph of an artisan ceramic espresso cup with delicate gold leaf marbling patterns. The cup sits on a polished marble surface under soft, warm lighting that emphasizes the premium texture and the vibrant amber and gold accents of the Solaris brand identity. The background is a clean, bright gallery-like space." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDnCL2CiJZwNfBmEHrHMTsTI6qewU9YOedRgevK7Ej6FWtrGNOfnHP-9r0Kp7gyov8yVIEx0pHB3XbolsHKTSuKp4G6hmdisglcsnitgThLMZnF5zwgcgYjoSmZNJP_yKAjo4iCZLKBNF9rrha17ZykIuY26jw3bEhywNE-vbwi2BpFdNqxGUwc4vaUCtKC_FdKaHuKvwdJGczI3Mh_TWDFTYmwRFTWqstFJDsp_L3Ml5SR6HW2ggF9Dg')"></div>
+<div class="flex-grow text-center md:text-left">
+<span class="text-label-caps font-label-caps text-secondary uppercase tracking-widest block mb-1">AI Match Confidence: 98%</span>
+<h4 class="font-bold text-on-surface">Gold-Inlay Porcelain Set</h4>
+<p class="text-body-sm text-on-surface-variant">Same artisan workshop, similar price point and material grade.</p>
+</div>
+<button class="px-6 py-2 border border-primary text-primary rounded-full font-bold hover:bg-primary-container/10 transition-colors button-active-state">View Details</button>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="mt-10 pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4">
+<button class="text-on-surface-variant font-bold hover:underline order-2 md:order-1">Go back to cart</button>
+<div class="flex gap-4 w-full md:w-auto order-1 md:order-2">
+<button class="flex-grow md:flex-initial px-8 py-4 bg-primary text-white font-bold rounded-full shadow-md hover:bg-on-primary-fixed-variant transition-all button-active-state">Confirm Preference</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center py-2 bg-surface-container-lowest border-t border-outline-variant shadow-lg z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label-caps font-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="text-label-caps font-label-caps">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="text-label-caps font-label-caps">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-caps font-label-caps">Profile</span>
+</a>
+</nav>
+<script>
+        function selectOption(element) {
+            // Remove active classes from all cards
+            document.querySelectorAll('.option-card').forEach(card => {
+                card.classList.remove('active', 'border-2');
+                card.classList.add('border');
+                card.querySelector('.checkmark').classList.remove('opacity-100');
+                card.querySelector('.checkmark').classList.add('opacity-0');
+            });
+
+            // Add active classes to selected card
+            element.classList.add('active', 'border-2');
+            element.classList.remove('border');
+            element.querySelector('.checkmark').classList.remove('opacity-0');
+            element.querySelector('.checkmark').classList.add('opacity-100');
+
+            // Handle Preview Visibility
+            const preview = document.getElementById('ai-preview');
+            if (element.textContent.includes('AI Suggestion')) {
+                preview.style.display = 'block';
+                preview.style.opacity = '1';
+                preview.style.transform = 'translateY(0)';
+            } else {
+                preview.style.display = 'none';
+            }
+        }
+    </script>
+</body></html>

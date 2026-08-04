@@ -1,0 +1,409 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Solaris Gold | Live Shopping Progress</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Work+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..900&amp;family=Manrope:wght@100..900&amp;family=Work+Sans:wght@100..900&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#2a1700",
+                    "secondary": "#904d00",
+                    "surface-container-high": "#dce9ff",
+                    "surface-container-low": "#eff4ff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "tertiary-fixed": "#dae2fd",
+                    "surface-container": "#e5eeff",
+                    "on-primary-fixed-variant": "#653e00",
+                    "outline": "#867461",
+                    "on-tertiary-fixed-variant": "#3f465c",
+                    "on-surface": "#0b1c30",
+                    "inverse-primary": "#ffb95f",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#3b4358",
+                    "surface-container-highest": "#d3e4fe",
+                    "secondary-fixed": "#ffdcc3",
+                    "error-container": "#ffdad6",
+                    "surface": "#f8f9ff",
+                    "on-background": "#0b1c30",
+                    "surface-bright": "#f8f9ff",
+                    "on-surface-variant": "#534434",
+                    "secondary-fixed-dim": "#ffb77d",
+                    "tertiary-container": "#a9b0c9",
+                    "surface-tint": "#855300",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#ffb95f",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#663500",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed-variant": "#6e3900",
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#f59e0b",
+                    "outline-variant": "#d8c3ad",
+                    "on-tertiary-fixed": "#131b2e",
+                    "primary": "#855300",
+                    "tertiary-fixed-dim": "#bec6e0",
+                    "inverse-surface": "#213145",
+                    "on-primary-container": "#613b00",
+                    "primary-fixed": "#ffddb8",
+                    "tertiary": "#565e74",
+                    "surface-dim": "#cbdbf5",
+                    "on-primary": "#ffffff",
+                    "background": "#f8f9ff",
+                    "surface-variant": "#d3e4fe",
+                    "on-secondary-fixed": "#2f1500",
+                    "secondary-container": "#fe932c",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "margin-mobile": "16px",
+                    "unit": "4px",
+                    "gutter": "24px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "body-sm": ["Work Sans"],
+                    "label-caps": ["JetBrains Mono"],
+                    "headline-lg-mobile": ["Manrope"],
+                    "body-md": ["Work Sans"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pulse-soft {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .7; }
+        }
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.1), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite linear;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .notification-slide {
+            animation: slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .bg-glass {
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.85);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen font-body-md overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="bg-surface-container-lowest dark:bg-surface-container-lowest shadow-sm docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile font-extrabold text-primary dark:text-primary-fixed-dim">Solaris Gold</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 p-2 rounded-full">shopping_cart</button>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 pb-32">
+<!-- Live Push Notification Alert (Phase 4 Trigger) -->
+<div class="notification-slide mb-8 w-full max-w-2xl mx-auto z-40" id="replacement-alert">
+<div class="bg-surface-container-highest border-l-4 border-primary-container p-6 rounded-xl shadow-lg flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a friendly personal shopper in a clean uniform, smiling warmly against a bright, modern grocery store background. The lighting is soft and golden, matching a premium retail aesthetic. High resolution, high contrast, minimalist background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfyJTf4-Em4J5yjunergayUNOzY4xEVhwsLOO4X84Cb0vwXubMLWuyr0gMDLmS4cdT8UET_mpYpuxKQ3oTfUpEEl2qTwfLufAkXpt4x4mZRGFRbnGg1dpDq_WD5Kl0r2U5tlnCgreIhGEpc-Jy_t4ysUIkpfiAGXjdW3VHgkmSD-nIABYd_Rm79UZhVO7ez4217YuUZvsIs48a-svAj7kmfTNn56JpgFdLFlmH1w_--P0p0z6cgT3ufA">
+</div>
+<div>
+<p class="font-bold text-on-surface">Shopper Marcus</p>
+<p class="text-body-sm text-on-surface-variant">Shopper replaced <span class="font-bold">Milk</span> with <span class="font-bold text-primary">Organic Oat Milk</span></p>
+</div>
+</div>
+<span class="text-label-caps text-on-surface-variant">Just now</span>
+</div>
+<div class="flex flex-wrap gap-3 mt-2">
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-bold hover:opacity-90 active:scale-95 transition-all text-body-sm">Approve</button>
+<button class="border border-outline text-on-surface-variant px-6 py-2 rounded-full font-bold hover:bg-surface-container-low active:scale-95 transition-all text-body-sm">Change</button>
+<button class="flex items-center gap-2 text-primary px-4 py-2 rounded-full font-bold hover:bg-primary-fixed transition-all text-body-sm" onclick="toggleChat()">
+<span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+                        Chat
+                    </button>
+</div>
+</div>
+</div>
+<!-- Progress Tracking Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Bento Stats & Progress -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Main Status Card -->
+<section class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 shimmer"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-end mb-6">
+<div>
+<span class="text-label-caps text-primary tracking-widest uppercase">Live Tracking</span>
+<h2 class="font-headline-lg text-headline-lg mt-1">Picking items...</h2>
+</div>
+<div class="text-right">
+<span class="text-headline-lg font-headline-lg text-on-surface">4<span class="text-on-surface-variant">/18</span></span>
+<p class="text-label-caps text-on-surface-variant">Items Found</p>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-4 bg-surface-container-high rounded-full overflow-hidden mb-8">
+<div class="h-full bg-primary-container transition-all duration-1000 ease-in-out" style="width: 22%;"></div>
+</div>
+<!-- Bento Grid for Status Bits -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="p-4 bg-surface rounded-lg border border-outline-variant text-center">
+<span class="material-symbols-outlined text-primary mb-2">schedule</span>
+<p class="text-label-caps text-on-surface-variant block">ETA</p>
+<p class="font-bold text-on-surface">12:45 PM</p>
+</div>
+<div class="p-4 bg-surface rounded-lg border border-outline-variant text-center">
+<span class="material-symbols-outlined text-primary mb-2">storefront</span>
+<p class="text-label-caps text-on-surface-variant block">Location</p>
+<p class="font-bold text-on-surface">Market District</p>
+</div>
+<div class="p-4 bg-surface rounded-lg border border-outline-variant text-center">
+<span class="material-symbols-outlined text-primary mb-2">local_shipping</span>
+<p class="text-label-caps text-on-surface-variant block">Method</p>
+<p class="font-bold text-on-surface">Priority</p>
+</div>
+<div class="p-4 bg-surface rounded-lg border border-outline-variant text-center">
+<span class="material-symbols-outlined text-primary mb-2">receipt_long</span>
+<p class="text-label-caps text-on-surface-variant block">Subtotal</p>
+<p class="font-bold text-on-surface">$142.50</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Shopping List Live State -->
+<section class="space-y-4">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile px-2">Shopping List Status</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Item 1: Found -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant flex items-center gap-4 opacity-60">
+<div class="w-16 h-16 bg-surface rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-on-surface">Organic Avocados (3pk)</p>
+<p class="text-body-sm text-on-surface-variant">Found in Produce</p>
+</div>
+</div>
+<!-- Item 2: Found -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant flex items-center gap-4 opacity-60">
+<div class="w-16 h-16 bg-surface rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-on-surface">Whole Grain Bread</p>
+<p class="text-body-sm text-on-surface-variant">Found in Bakery</p>
+</div>
+</div>
+<!-- Item 3: Current Focus (Pulsing) -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border-2 border-primary-container flex items-center gap-4 pulse-soft">
+<div class="w-16 h-16 bg-surface-container rounded-lg flex items-center justify-center relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A macro photograph of fresh organic honey crisp apples with water droplets, vibrant red and yellow skins, sitting on a wooden surface with soft bokeh grocery store background. High-end food photography, sharp focus, natural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-XvgVwrdKHx2JQEfYQ0xD0boiYH-eKxCNwviMJZPd4WAAYqc_RzNvdiYuySOvu0vFzTs1TVJmcKkCOqBNrxVX-n2tlECetWw8HOQsKB81BMNgF5CcFgIxOSvnRNzARI_HRV3rxgo3uXo-nhnOEV2OBkgvXs6A88NhZVav2jG153WSlkbPIj4YGF3t6yrwVxZnGvNXuX-8__q8IiONHeEcGyNFcuotGpGs1T1iB2t4PAvTv1Fj4lT3Ow">
+</div>
+<div class="flex-1">
+<p class="font-bold text-on-surface">Honey Crisp Apples</p>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-primary-container rounded-full animate-ping"></span>
+<p class="text-body-sm text-primary font-bold">Shopper is here</p>
+</div>
+</div>
+</div>
+<!-- Item 4: Pending -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant flex items-center gap-4">
+<div class="w-16 h-16 bg-surface rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-outline">hourglass_empty</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-on-surface">Wild Caught Salmon</p>
+<p class="text-body-sm text-on-surface-variant">Awaiting pick-up</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Live Replacement Chat & Details -->
+<aside class="lg:col-span-4 space-y-6 sticky top-24">
+<!-- Chat Window (Simulated) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-lg border border-outline-variant flex flex-col h-[600px]">
+<div class="p-4 border-b border-outline-variant flex items-center justify-between bg-surface-container-low rounded-t-xl">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-primary-fixed overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up face of a male shopper in his 30s, warm expression, professional attire. Crisp lighting, shallow depth of field, high-end editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4FhIdBkRu1Byv4FwtsQ_HC-Ct1hwdWe6znv9Ru-kkRc8jrwXp8BLth3IvBOQv9U62MIELFm3BP1IE6wmmnoP3ooCq5lumFQdrUTl1qzaS0OW2QnLBaU-F7ctDSs7FIKvPbEboO1gmn48fNNuAWT46oy3pYejwIxSb5Df91_JTDP4MLlgmW9VYHUWhlD8cv8p8dRqWxflI5D8Vh9tbqZAPPak5wWj7mu5mbfDguaIZjA8Abc2Ub_BX6w">
+</div>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></div>
+</div>
+<div>
+<p class="font-bold text-on-surface leading-none">Marcus</p>
+<p class="text-[10px] text-green-600 font-bold uppercase tracking-wider">Active Now</p>
+</div>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant">more_vert</button>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-4">
+<div class="text-center">
+<span class="text-[10px] bg-surface-container px-3 py-1 rounded-full text-on-surface-variant font-bold uppercase">Today</span>
+</div>
+<!-- Shopper Message -->
+<div class="flex gap-2 max-w-[85%]">
+<div class="bg-surface-container-high p-3 rounded-2xl rounded-tl-none">
+<p class="text-body-sm text-on-surface">Hi! I'm starting your order now at Market District. I'll message you if anything is out of stock.</p>
+<p class="text-[10px] text-on-surface-variant mt-1">11:32 AM</p>
+</div>
+</div>
+<!-- System Message -->
+<div class="flex flex-col items-center gap-2 py-4">
+<div class="bg-error-container text-on-error-container p-4 rounded-xl border border-error w-full">
+<p class="font-bold text-body-sm">Substitution Alert</p>
+<p class="text-body-sm mb-3">2% Whole Milk is out of stock. Suggested replacement:</p>
+<div class="bg-white/50 p-2 rounded-lg flex items-center gap-3">
+<div class="w-12 h-12 bg-white rounded border border-outline-variant flex-shrink-0">
+<img class="w-full h-full object-contain p-1" data-alt="Product shot of a premium organic oat milk carton, minimalist clean branding, isolated on white. High contrast, studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3rNVu5mZ02hvk2LNV29tzxNosAlyfySXAketR8dN61MU8IHkXmKNyHKaAz6Eh2eRuO3wpnMvlsephZc1CXho46DPzOjErZKgt4G6RyME73o14NIRZJeLjlLkqwaQcA7XUXOZI1p19HSv42bZyu-Rw8vN3YefB1Z3kRYmcVBpokU-BEHdsb2SYRdE04HN8btf_1ULUWTcRzfC1oe41tAKgdQqGXZx9AgWZ_xSORdO_SxaIoJRqnQ5fHw">
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold">Organic Oat Milk (64oz)</p>
+<p class="text-[10px] text-primary">+$0.85 price difference</p>
+</div>
+</div>
+<div class="flex gap-2 mt-4">
+<button class="bg-primary-container text-on-primary-container text-xs px-4 py-2 rounded-lg font-bold">Approve</button>
+<button class="bg-white text-on-surface text-xs px-4 py-2 rounded-lg font-bold">Decline</button>
+</div>
+</div>
+</div>
+<!-- User Message -->
+<div class="flex gap-2 flex-row-reverse max-w-[85%] ml-auto">
+<div class="bg-primary-container text-on-primary-container p-3 rounded-2xl rounded-tr-none shadow-md">
+<p class="text-body-sm">The oat milk looks fine, thank you Marcus!</p>
+<p class="text-[10px] opacity-70 mt-1 text-right">12:04 PM</p>
+</div>
+</div>
+</div>
+<div class="p-4 bg-white rounded-b-xl border-t border-outline-variant">
+<div class="flex items-center gap-2 bg-surface p-2 rounded-full border border-outline-variant">
+<button class="material-symbols-outlined text-on-surface-variant p-2">add_circle</button>
+<input class="bg-transparent border-none focus:ring-0 flex-1 text-body-sm text-on-surface" placeholder="Type a message..." type="text">
+<button class="material-symbols-outlined text-primary p-2">send</button>
+</div>
+</div>
+</div>
+<!-- Finding Shopper Overlay (Hidden after state transition) -->
+<div class="hidden fixed inset-0 z-[60] bg-white flex flex-col items-center justify-center p-8 transition-opacity duration-500" id="finding-overlay">
+<div class="relative w-48 h-48 mb-8">
+<div class="absolute inset-0 border-4 border-primary-container border-t-transparent rounded-full animate-spin"></div>
+<div class="absolute inset-4 rounded-full overflow-hidden flex items-center justify-center bg-surface">
+<span class="material-symbols-outlined text-primary text-[64px]" style="font-variation-settings: 'FILL' 1;">person_search</span>
+</div>
+</div>
+<h2 class="font-headline-xl text-headline-xl text-on-surface text-center mb-2">Finding your shopper...</h2>
+<p class="text-body-md text-on-surface-variant text-center max-w-sm">We're matching you with the best available concierge at Market District.</p>
+</div>
+</aside>
+</div>
+</main>
+<!-- Bottom Nav Bar (Mobile View) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center py-2 bg-surface-container-lowest z-50 border-t border-outline-variant shadow-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="text-label-caps">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<span class="text-label-caps">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label-caps">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction: Smoothly hide finding overlay to simulate the "Next State"
+        window.addEventListener('DOMContentLoaded', () => {
+            const overlay = document.getElementById('finding-overlay');
+            // In a real app, this would trigger on a websocket event
+            // Here we simulate it with a short delay
+            setTimeout(() => {
+                overlay.classList.add('opacity-0');
+                setTimeout(() => overlay.style.display = 'none', 500);
+            }, 3000);
+        });
+
+        function toggleChat() {
+            // Scroll to chat on mobile if needed, or focus input
+            const chatInput = document.querySelector('input[type="text"]');
+            chatInput.focus();
+            chatInput.placeholder = "Responding to replacement...";
+        }
+
+        // Simulate item picking progress increment
+        let progress = 22;
+        const progressBar = document.querySelector('.h-full.bg-primary-container');
+        const progressText = document.querySelector('.text-headline-lg.font-headline-lg.text-on-surface');
+        
+        setInterval(() => {
+            if (progress < 100) {
+                progress += 0.5;
+                progressBar.style.width = progress + '%';
+                // Randomly update found count for visual interest
+                if (Math.random() > 0.95) {
+                    const currentFound = parseInt(progressText.innerText.split('/')[0]);
+                    if (currentFound < 18) {
+                        progressText.innerHTML = `${currentFound + 1}<span class="text-on-surface-variant">/18</span>`;
+                    }
+                }
+            }
+        }, 5000);
+    </script>
+</body></html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Solaris Gold - Location &amp; Store Selection</title>
+<!-- Tailwind CSS with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600&amp;family=Manrope:wght@700;800&amp;family=Work+Sans:wght@400;500&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#2a1700",
+                    "secondary": "#904d00",
+                    "surface-container-high": "#dce9ff",
+                    "surface-container-low": "#eff4ff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "tertiary-fixed": "#dae2fd",
+                    "surface-container": "#e5eeff",
+                    "on-primary-fixed-variant": "#653e00",
+                    "outline": "#867461",
+                    "on-tertiary-fixed-variant": "#3f465c",
+                    "on-surface": "#0b1c30",
+                    "inverse-primary": "#ffb95f",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#3b4358",
+                    "surface-container-highest": "#d3e4fe",
+                    "secondary-fixed": "#ffdcc3",
+                    "error-container": "#ffdad6",
+                    "surface": "#f8f9ff",
+                    "on-background": "#0b1c30",
+                    "surface-bright": "#f8f9ff",
+                    "on-surface-variant": "#534434",
+                    "secondary-fixed-dim": "#ffb77d",
+                    "tertiary-container": "#a9b0c9",
+                    "surface-tint": "#855300",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#ffb95f",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#663500",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed-variant": "#6e3900",
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#f59e0b",
+                    "outline-variant": "#d8c3ad",
+                    "on-tertiary-fixed": "#131b2e",
+                    "primary": "#855300",
+                    "tertiary-fixed-dim": "#bec6e0",
+                    "inverse-surface": "#213145",
+                    "on-primary-container": "#613b00",
+                    "primary-fixed": "#ffddb8",
+                    "tertiary": "#565e74",
+                    "surface-dim": "#cbdbf5",
+                    "on-primary": "#ffffff",
+                    "background": "#f8f9ff",
+                    "surface-variant": "#d3e4fe",
+                    "on-secondary-fixed": "#2f1500",
+                    "secondary-container": "#fe932c",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "margin-mobile": "16px",
+                    "unit": "4px",
+                    "gutter": "24px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "body-sm": ["Work Sans"],
+                    "label-caps": ["JetBrains Mono"],
+                    "headline-lg-mobile": ["Manrope"],
+                    "body-md": ["Work Sans"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(241, 245, 249, 0.5);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-surface-container-lowest shadow-sm docked full-width top-0 sticky z-50 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile font-extrabold text-primary md:font-headline-lg md:text-headline-lg">Solaris Gold</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors duration-200">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="shopping_cart">shopping_cart</span>
+</button>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8">
+<!-- Hero Section: Location Selection -->
+<section class="relative mb-12 overflow-hidden rounded-xl h-64 md:h-80 flex items-center">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A sprawling luxury urban landscape at golden hour, captured with a cinematic wide-angle lens. The lighting is warm and ethereal, highlighting the architectural precision of modern skyscrapers and lush green parks. The overall aesthetic is premium and authoritative, using a color palette of deep ambers and crisp whites to evoke a sense of high-end financial exclusivity and calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8laJQC1m4X3Z8kORFgR8WGc8LYtWQNH8vFhNFAO2MSMzVsACFk381tla-3NBPbaHzMcL8zPXjFbxib14J-HgfXLux2j_p8PbXYZHu3jUUxTb_xPKrjKODwrSz_IVAbgmvbXb-VHyC-U8kXElXjgUTqnX0mmtemcWz03uoZUZ6kiHZfG0QjgCyeSJuq2nqBY3El0zmeE5shV2JVfrn8lQJ-BWJ7jE9M3EnUUQF5AcI4NSLMRfhm1RbVQ">
+<div class="absolute inset-0 bg-gradient-to-r from-on-primary-fixed/60 to-transparent"></div>
+</div>
+<div class="relative z-10 w-full md:w-2/3 px-8">
+<h2 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-surface-container-lowest mb-6">Delivery to your doorstep.</h2>
+<div class="flex flex-col md:flex-row gap-4">
+<div class="relative flex-grow">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full pl-12 pr-4 py-4 rounded-xl border-none focus:ring-2 focus:ring-primary-container shadow-lg text-body-md" placeholder="Enter your delivery address or pin" type="text">
+</div>
+<button class="bg-primary-container text-on-primary-container font-bold px-8 py-4 rounded-xl flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="my_location">my_location</span>
+<span>Use GPS</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Section Title -->
+<div class="mb-8">
+<h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Available Stores</h3>
+<p class="text-on-surface-variant font-body-md">Hand-picked local favorites with guaranteed delivery times.</p>
+</div>
+<!-- Store Selection: Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Store 1: Costco (Large Card) -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl glass-card p-6 border border-outline-variant hover:shadow-xl transition-all cursor-pointer">
+<div class="flex flex-col md:flex-row justify-between h-full gap-6">
+<div class="flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="bg-primary-container/10 text-secondary font-label-caps text-label-caps px-3 py-1 rounded-full uppercase tracking-wider">Priority 30 mins</span>
+<span class="bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps px-3 py-1 rounded-full uppercase">Wholesale</span>
+</div>
+<h4 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface group-hover:text-primary transition-colors">Costco Wholesale</h4>
+<p class="text-on-surface-variant text-body-md mt-2 max-w-sm">Premium quality bulk goods. Exclusive members-only pricing delivered directly to your door.</p>
+</div>
+<div class="mt-8 flex items-center gap-4">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center overflow-hidden">
+<img class="object-cover w-full h-full" data-alt="A macro photograph of fresh organic blueberries with morning dew, showcasing deep indigo textures and vibrant natural colors. High-key lighting, minimalist studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMsxJGUhwcfUKMv7GOATYrx5PCAfC4MTzG0P9H5esM4apcwbD75hGhPTgxBF_0hiJKhq3KHtO-faGVeguk_RcCQbA5YG-NlgzhMTIT7aq9CeuWZcTsXlzOuNNkQPokuS12O3JFnEmsXcGxV3H0N6aUK0VVQ5u2aCp8u6-xG6RC4yk-AYUMG1BPXtwcPnelB0VtXq35lLEu8VAESfEFkvz-TIvRE405A_wna8JywPvpTA8943WR5xU86w">
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center overflow-hidden">
+<img class="object-cover w-full h-full" data-alt="A clean, high-contrast shot of gourmet artisan bread with a golden crust, dusting of flour, sitting on a marble surface. Soft sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRhY_x0rfmJEpBzLb364WPdsd1fTdvx8f-hk8lK1iOwFusk5kcRd6-AdUDl13PWs_Uy4A_PkX7lGc8eahV8vvvkFYKaEjKsdOSc-NsBjTSLdCLNYEbzEq9d3CU5RGkoKOhn5wtVBEOMeBGizqgWHlXBcOIPcbAdMi1Yw1H9SHwNeihERjxmbszsJSpMZWYkOAD3Z_x7u4QaCHfmLWI1EwFIQjnME_cNBqWlRlc1Cbdx-LK4dfKzRI4cg">
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center overflow-hidden text-[10px] font-bold text-on-surface-variant">
+                                    +12
+                                </div>
+</div>
+<span class="text-body-sm text-on-surface-variant italic">Popular items available now</span>
+</div>
+</div>
+<div class="w-full md:w-1/3 aspect-square rounded-xl overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A wide shot of a modern, clean grocery store interior with perfectly organized shelves, high-end wooden accents, and bright, warm lighting. The atmosphere is upscale and professional, focusing on a premium shopping experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxopo9BxL8T60jbkie3nEdqwliNl4jxG_Bjkje91w97NtVyoaOpwGQVOmy5JBHSjInQKZfFFEz5FpMAIV2FyqsRHa7DozfzF5dlTyC9ieIlp5Y24MNUX5xlOUCEIbFtUDgXU7Ah_KD_I8QdU0QqP-IZMJYOgn14OLlWo7hxKSlSmQE7-9g65AF2iOpwC7458omzVd7tUoCxUN9yYAIRfi9dC9a4opuPFEQldSX2E8cwSP9LNz7DGpqrg">
+</div>
+</div>
+</div>
+<!-- Store 2: Kroger (Medium Card) -->
+<div class="md:col-span-4 group relative overflow-hidden rounded-xl bg-surface-container-low p-6 border border-outline-variant hover:shadow-xl transition-all cursor-pointer">
+<div class="flex flex-col h-full justify-between">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="bg-primary/5 text-primary font-label-caps text-label-caps px-3 py-1 rounded-full uppercase tracking-wider">Standard 1 hr</span>
+</div>
+<h4 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface group-hover:text-primary transition-colors">Kroger</h4>
+<p class="text-on-surface-variant text-body-sm mt-2">Fresh produce and household essentials with daily rotating discounts.</p>
+</div>
+<div class="mt-6">
+<div class="w-full h-32 rounded-xl overflow-hidden mb-4">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A minimalist overhead shot of a vibrant salad bowl with fresh greens, citrus slices, and seeds. The lighting is crisp and clean, emphasizing a health-conscious and fresh lifestyle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxNhlyJ3PjvKG8z5fyqMgrJiWfBoTasmbBblXsKPDUXal0BtqLm139-5XuAWjgi7dqpB3SKJkf3mcSH3hpg1nVNoqVlwGR1GsuXiwJvGDVKwAnsc0WqFHAuh0KPAYcYt3Dmar4fcC5q3FWFFRHgZK-mpnr7xmlycE9b0y9Zdclc-p7zCRBHDFPX7QTB9UHBQaaHC-swn-LNIw2Ro1YEItzkx6-UjTaPYlDgnQWF0fKTZZIpQTGN4fwGw">
+</div>
+<button class="w-full py-3 border border-primary text-primary font-bold rounded-xl hover:bg-primary-container/10 transition-colors">Select Store</button>
+</div>
+</div>
+</div>
+<!-- Store 3: Aldi (Medium Card) -->
+<div class="md:col-span-4 group relative overflow-hidden rounded-xl bg-surface-container-lowest p-6 border border-outline-variant hover:shadow-xl transition-all cursor-pointer">
+<div class="flex flex-col h-full justify-between">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="bg-primary/5 text-primary font-label-caps text-label-caps px-3 py-1 rounded-full uppercase tracking-wider">Standard 1 hr</span>
+</div>
+<h4 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface group-hover:text-primary transition-colors">Aldi</h4>
+</div>
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="eco">eco</span>
+</div>
+<p class="text-on-surface-variant text-body-sm mt-4">Unbeatable value on organic groceries and specialty imports.</p>
+<div class="mt-8 pt-4 border-t border-outline-variant flex justify-between items-center">
+<span class="text-label-caps font-label-caps text-on-surface-variant">FREE DELIVERY OVER $35</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Store 4: Specialty & Local (Large Card) -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl bg-gradient-to-br from-surface-container-high to-surface-container-low p-8 border border-outline-variant hover:shadow-xl transition-all cursor-pointer">
+<div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
+<div class="flex-grow">
+<h4 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2">Local Farmers Market</h4>
+<p class="text-on-surface-variant text-body-md max-w-md">The finest seasonal produce sourced directly from local growers. Available every Tuesday and Saturday with 45-minute priority delivery.</p>
+<div class="mt-6 flex gap-3">
+<span class="bg-white/80 px-4 py-2 rounded-full text-body-sm font-medium border border-outline-variant">Organic</span>
+<span class="bg-white/80 px-4 py-2 rounded-full text-body-sm font-medium border border-outline-variant">Sustainable</span>
+<span class="bg-white/80 px-4 py-2 rounded-full text-body-sm font-medium border border-outline-variant">Local</span>
+</div>
+</div>
+<div class="flex-shrink-0">
+<div class="w-48 h-48 rounded-full border-8 border-white shadow-lg overflow-hidden relative rotate-3 group-hover:rotate-0 transition-transform">
+<img class="w-full h-full object-cover" data-alt="A rustic wooden basket overflowing with colorful heirlooom tomatoes, vibrant carrots, and fresh herbs. Soft, diffused outdoor lighting in a farm setting, shallow depth of field, high-end editorial food photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuG4A9EWXcUI9YqVWsiHtyRSQMnMISSN31GcdQIXsafvgNSRvXwElzEm15qdXM-M9Jl-ef6OrNRd0f5MEsamHLFayeKrkititMKNSkwjPpZ69GIYHNROvCjcLDzqICH2M2YovYXhlHUlQsgYqD46z0E-5g48QP_Jf2NrdkolYQILoVyjU8vIV3FP6FEXhMJ2Y7UwOhtSTHngmqtkfBqLqJ5OPPoVCZwUy6EQJjIa1uYI2Ssctkmz0wsA">
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Featured Collections -->
+<section class="mt-16">
+<h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6">Trending Near You</h3>
+<div class="flex overflow-x-auto pb-4 gap-6 no-scrollbar">
+<!-- Collection 1 -->
+<div class="flex-shrink-0 w-64 rounded-xl overflow-hidden bg-white shadow-sm border border-outline-variant group cursor-pointer">
+<div class="h-40 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="A sophisticated kitchen counter with a high-end coffee machine, premium coffee beans, and sleek glass jars. The lighting is warm and inviting, using a palette of rich browns and gold accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-ikZAKOuh4_k5GoZfuG4vNu_jHnnTQXjAHKoc9ncTih36_xdeIKkR8hegYHSnnFzZRgIcKF6IsQfjGD8B7hxtw4kSPK1rEU0SlYzZuR1t_n0cfUtCWcx5mYFLFsdFsLywBZvH70kRhW4_bN7H_6JnLk8jmxBT52KjQfbuOw5vaOs28zA6QhVv65jCQRu-rGvJHCYgOH1g6hGBb6PUOIWyg1DGWdsH4N-CsL0cUhvETUzyBnvpak2AQw">
+</div>
+<div class="p-4">
+<h5 class="font-headline-lg text-body-md font-bold text-on-surface">Artisan Breakfast</h5>
+<p class="text-body-sm text-on-surface-variant">Starting from $12.00</p>
+</div>
+</div>
+<!-- Collection 2 -->
+<div class="flex-shrink-0 w-64 rounded-xl overflow-hidden bg-white shadow-sm border border-outline-variant group cursor-pointer">
+<div class="h-40 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="A lush display of exotic fruits like dragon fruit, mangoes, and passion fruit on a clean marble surface. Bright, high-key lighting, vibrant colors, minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgAAlufvoQb6rWpH2IUa_inKWYNGcm7sSZq95gFMRRK6aWhASr3l-Plmwt8sMZfXlCJ0oKA7UU7AGuBqlAFHO0zIGwlnCdDT0EkcGP6CKFzfm3WQS2tkTO0gbdCnfHN5xLemXnBkFUswa29X5-TuBw_P_ObDwtXPEs4BTJJOT0Zt2WLSpHjzZj49rq9RxGq6zzQh-gNfJDUUyQDbwNdR_zwpSCWcPZNlxWeG4IH081rmibJuOSBAFV5A">
+</div>
+<div class="p-4">
+<h5 class="font-headline-lg text-body-md font-bold text-on-surface">Exotic Fruits</h5>
+<p class="text-body-sm text-on-surface-variant">Fresh daily arrivals</p>
+</div>
+</div>
+<!-- Collection 3 -->
+<div class="flex-shrink-0 w-64 rounded-xl overflow-hidden bg-white shadow-sm border border-outline-variant group cursor-pointer">
+<div class="h-40 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="A selection of luxury home spa products including scented candles, essential oils, and plush towels. The setting is a serene bathroom with soft morning light and a clean white color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlMTOj07doINEgZogyCpBrzqrfcvuE6x5vq20COFG8ohIN8BE_J-PvPhz8a9tEgXOtFK_PkZxzztie1MMDIw4jtLgthJXk-SxdINtMiHTBIwheKYM7t8BHIxFuTZH1VuAUIXAo0eDhvmUCL-Nj0PrknPtFNpIxysuxhFg6iQYeO3wxU46dpYpgIzkGOu4CdjajcRFs3SkH1mrXnX9BHkjRLLcz-eqMZdj0zEXxAtBhSnTH4BLaGR0UwA">
+</div>
+<div class="p-4">
+<h5 class="font-headline-lg text-body-md font-bold text-on-surface">Home Sanctuary</h5>
+<p class="text-body-sm text-on-surface-variant">Wellness essentials</p>
+</div>
+</div>
+<!-- Collection 4 -->
+<div class="flex-shrink-0 w-64 rounded-xl overflow-hidden bg-white shadow-sm border border-outline-variant group cursor-pointer">
+<div class="h-40 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="A clean, professional photo of high-quality proteins like salmon fillets and lean beef on a cedar plank. Soft studio lighting, focusing on freshness and texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqr_XZHJZ3MzhNN-Mgyrg5vInOBIhNIRh9AGMxtGBXOD_TYlYCjQhw7u2u5FQFyDXeuQOf3WLyMiatnPTv614DJL3JwLogoarFac0_ENyCALEeqncGz5FuhhZ3DrniqAd_QmVegNYj2R8M_mHXffjlGg1n7LaBYAOFeK-dqMvcFhShZswKF1kfRnwXQvXrR4JRgE6k42pnq-d5p9tJoieO4TfzClXiMYRaBCyfcXmD52qSRYbuOF-qzg">
+</div>
+<div class="p-4">
+<h5 class="font-headline-lg text-body-md font-bold text-on-surface">Prime Cuts</h5>
+<p class="text-body-sm text-on-surface-variant">Sourced sustainably</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center py-2 bg-surface-container-lowest border-t border-outline-variant shadow-lg z-50">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-label-caps text-label-caps">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-caps text-label-caps">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+</nav>
+<!-- Micro-interaction Scripts -->
+<script>
+        document.querySelectorAll('button, .group').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.classList.add('opacity-80');
+            });
+            el.addEventListener('mouseup', () => {
+                el.classList.remove('opacity-80');
+            });
+            el.addEventListener('mouseleave', () => {
+                el.classList.remove('opacity-80');
+            });
+        });
+    </script>
+</body></html>

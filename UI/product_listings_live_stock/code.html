@@ -1,0 +1,353 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Solaris Gold | Stock Confidence Produce</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Work+Sans:wght@400;500&amp;family=JetBrains+Mono:wght@600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..900&amp;family=Manrope:wght@100..900&amp;family=Work+Sans:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#2a1700",
+                    "secondary": "#904d00",
+                    "surface-container-high": "#dce9ff",
+                    "surface-container-low": "#eff4ff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "tertiary-fixed": "#dae2fd",
+                    "surface-container": "#e5eeff",
+                    "on-primary-fixed-variant": "#653e00",
+                    "outline": "#867461",
+                    "on-tertiary-fixed-variant": "#3f465c",
+                    "on-surface": "#0b1c30",
+                    "inverse-primary": "#ffb95f",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#3b4358",
+                    "surface-container-highest": "#d3e4fe",
+                    "secondary-fixed": "#ffdcc3",
+                    "error-container": "#ffdad6",
+                    "surface": "#f8f9ff",
+                    "on-background": "#0b1c30",
+                    "surface-bright": "#f8f9ff",
+                    "on-surface-variant": "#534434",
+                    "secondary-fixed-dim": "#ffb77d",
+                    "tertiary-container": "#a9b0c9",
+                    "surface-tint": "#855300",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#ffb95f",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#663500",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed-variant": "#6e3900",
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#f59e0b",
+                    "outline-variant": "#d8c3ad",
+                    "on-tertiary-fixed": "#131b2e",
+                    "primary": "#855300",
+                    "tertiary-fixed-dim": "#bec6e0",
+                    "inverse-surface": "#213145",
+                    "on-primary-container": "#613b00",
+                    "primary-fixed": "#ffddb8",
+                    "tertiary": "#565e74",
+                    "surface-dim": "#cbdbf5",
+                    "on-primary": "#ffffff",
+                    "background": "#f8f9ff",
+                    "surface-variant": "#d3e4fe",
+                    "on-secondary-fixed": "#2f1500",
+                    "secondary-container": "#fe932c",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "margin-mobile": "16px",
+                    "unit": "4px",
+                    "gutter": "24px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "body-sm": ["Work Sans"],
+                    "label-caps": ["JetBrains Mono"],
+                    "headline-lg-mobile": ["Manrope"],
+                    "body-md": ["Work Sans"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-interaction:active {
+            opacity: 0.8;
+            transform: scale(0.95);
+            transition: all 0.1s ease;
+        }
+        .bento-card {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .bento-card:hover {
+            transform: translateY(-4px);
+        }
+        /* Bottom sheet animation */
+        #bottom-sheet {
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+        }
+        #bottom-sheet.open {
+            transform: translateY(0);
+        }
+        .glass-effect {
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-surface-container-lowest dark:bg-surface-container-lowest shadow-sm docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+<div class="flex items-center gap-4">
+<button class="active-interaction text-primary">
+<span class="material-symbols-outlined">location_on</span>
+</button>
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile font-extrabold text-primary dark:text-primary-fixed-dim">Solaris Gold</h1>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-8">
+<a class="text-primary font-bold font-body-md" href="#">Home</a>
+<a class="text-on-surface-variant font-body-md hover:bg-surface-container-low transition-colors duration-200 px-2 py-1 rounded" href="#">Search</a>
+<a class="text-on-surface-variant font-body-md hover:bg-surface-container-low transition-colors duration-200 px-2 py-1 rounded" href="#">Orders</a>
+</nav>
+<button class="active-interaction text-primary">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-8">
+<!-- Hero Section / Category Header -->
+<section class="mb-10">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-2 block">Premium Selection</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface">Fresh Produce</h2>
+<p class="text-on-surface-variant max-w-xl mt-2 font-body-md">Directly sourced from artisanal growers, optimized with real-time stock confidence tracking.</p>
+</div>
+<div class="flex gap-2">
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container-high rounded-full">
+<span class="material-symbols-outlined text-primary scale-75">filter_list</span>
+<span class="font-label-caps text-label-caps">Filters</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Bento Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Product Card 1: High Confidence -->
+<div class="bento-card group flex flex-col bg-surface-container-lowest rounded-xl border border-outline-variant/30 overflow-hidden shadow-sm">
+<div class="relative h-64 w-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A professional, high-resolution food photography shot of organic heritage carrots with vibrant green tops arranged artistically on a white marble surface. The lighting is bright and airy, emphasizing the natural textures and orange hues. The overall aesthetic is minimalist, premium, and clean, aligning with a high-end editorial culinary brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk_1P7slQp1tSp0H8ERuk-TdRKkOK6o_ZV0tes1Lv6Igm1V3yUhoKwAsC6RALOV_K1GmPn4VBNasKe0feC13cqcWz6JCV2o-lczoMM6es_y7rbcCAJCNHdqaw0bB7bT-GpomB3hIyz95sC4T7Z4FfcUkeyaI0wAHmPOKz5nuSyrKtIqbRQO6FIawNSRqyWGvzU9A4fq486kIznl26gM9txO2UCaX8OiOmytvafpQnfqA2TF_T-PyqOtQ">
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full flex items-center gap-1.5 border border-primary/10">
+<span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-label-caps font-label-caps text-on-surface">95% High Confidence</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Heritage Carrots</h3>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-secondary">$4.50</span>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-6">Organic, bunch of 6-8 varieties.</p>
+<div class="mt-auto flex items-center justify-between">
+<button class="text-primary font-label-caps text-label-caps hover:underline cursor-pointer" onclick="openBottomSheet('Heritage Carrots')">Compare Price</button>
+<button class="active-interaction bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-caps text-label-caps flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span> Add
+                        </button>
+</div>
+</div>
+</div>
+<!-- Product Card 2: Low Stock -->
+<div class="bento-card group flex flex-col bg-surface-container-lowest rounded-xl border border-outline-variant/30 overflow-hidden shadow-sm">
+<div class="relative h-64 w-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Close-up macro photography of ripe organic strawberries in a textured ceramic bowl. The berries are glistening with small water droplets, and the deep red color contrasts beautifully with the soft grey of the bowl. Professional lighting highlights the seeds and texture, set against a bright, airy kitchen background with golden sunlight filtering in." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-2jDLBPs6VfscAiUpqa_ERvSaoGzRwNTfuX_B0hocacIZtCXgJPMo1iTvUrtZ8y5Qt0PRXIMTPCGHICZDTICqgtinyrwFXo1MCWRVHTYgBNR9N5Bf1tQ2_sEghGOkYdcXARd9kKaj8FF4i68c9OFHGYuVg03IMgiUZOzz6kW8Mgt9lDKY4JGdq5S3yhTJRKbER-7RK6RMxKqHH4xd4wViZ5CHX_ygnkQTSIc1TLnSMEIwBYPoMac1vQ">
+<div class="absolute top-3 left-3 bg-error-container/90 backdrop-blur px-3 py-1 rounded-full flex items-center gap-1.5 border border-error/10">
+<span class="material-symbols-outlined text-error text-[16px]" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="text-label-caps font-label-caps text-on-error-container">Low Stock — 2 Left</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Wild Strawberries</h3>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-secondary">$8.00</span>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-6">Hand-picked seasonal delicacy.</p>
+<div class="mt-auto flex items-center justify-between">
+<button class="text-primary font-label-caps text-label-caps hover:underline cursor-pointer" onclick="openBottomSheet('Wild Strawberries')">Compare Price</button>
+<button class="active-interaction bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-caps text-label-caps flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span> Add
+                        </button>
+</div>
+</div>
+</div>
+<!-- Product Card 3: High Confidence -->
+<div class="bento-card group flex flex-col bg-surface-container-lowest rounded-xl border border-outline-variant/30 overflow-hidden shadow-sm">
+<div class="relative h-64 w-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A sophisticated still life of several varieties of kale and leafy greens arranged inside a rustic wooden crate. The lighting is dramatic yet soft, showcasing the deep greens and purple veins of the leaves. The setting is a bright, modern minimalist pantry with warm amber accents in the background, creating a premium organic feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYDul6xWP7BsVsHnY17TB4CDDQIGI_vHFMpvbCmBwBtjn5vFybR6lSXcDA_R9M1os6OvVq_65xCKvL9JMUQrta1Bgg8K6Br-hxjjdJ_qcGV9v-nfWWGrV_utZoB6tjYanFwxCWL-bI8rG5jnj7_vy-4CYbFBxjVda7FrbEKOPnN_RBusWseqJx84a1dwkbN090T7lJmDERUAFJO5OWInyqBZ_dN2crkn5xZpwk-eWI5RE8Ds1s4TYedw">
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full flex items-center gap-1.5 border border-primary/10">
+<span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-label-caps font-label-caps text-on-surface">98% High Confidence</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Tuscan Kale</h3>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-secondary">$3.25</span>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-6">Fresh Lacinato variety, 1lb.</p>
+<div class="mt-auto flex items-center justify-between">
+<button class="text-primary font-label-caps text-label-caps hover:underline cursor-pointer" onclick="openBottomSheet('Tuscan Kale')">Compare Price</button>
+<button class="active-interaction bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-caps text-label-caps flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span> Add
+                        </button>
+</div>
+</div>
+</div>
+<!-- Product Card 4: High Confidence -->
+<div class="bento-card group flex flex-col bg-surface-container-lowest rounded-xl border border-outline-variant/30 overflow-hidden shadow-sm">
+<div class="relative h-64 w-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A cluster of large, heirloom yellow tomatoes on the vine, glistening under warm, direct sunlight. The golden-yellow skins are bright and saturated, set against a soft-focus background of a sun-drenched organic garden. The image has a high-contrast, premium editorial look, emphasizing freshness and local sourcing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY3lblnyE9jP4gNx8foZDVy43eBDMtTne2fmnUormKUN41ICJhO-NCrpWDUCTr4vPTMljQ_htUyBuG0VDw-GJC4iGb97Q8tKuNckS5KbaC-kceTnEkiqiTR_I0t3ZPn1L8l3sC4RKUAB3IsjI8C9V9uNcxsml0dfPncQN0ttVs0Imguh8_c00nWFKwN8dX1MI3qicbUcOyhLRCKigayaPM0biWCk5RKM-7QdR2-IdOZgfOSAQh0DJgFw">
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full flex items-center gap-1.5 border border-primary/10">
+<span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-label-caps font-label-caps text-on-surface">92% High Confidence</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Golden Heirlooms</h3>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-secondary">$6.75</span>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-6">Sweet yellow variety, 2lb.</p>
+<div class="mt-auto flex items-center justify-between">
+<button class="text-primary font-label-caps text-label-caps hover:underline cursor-pointer" onclick="openBottomSheet('Golden Heirlooms')">Compare Price</button>
+<button class="active-interaction bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-caps text-label-caps flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span> Add
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center py-2 bg-surface-container-lowest border-t border-outline-variant z-50 md:hidden">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active-interaction" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 active-interaction" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-caps text-label-caps">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 active-interaction" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-caps text-label-caps">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 active-interaction" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+</nav>
+<!-- Bottom Sheet Overlay -->
+<div class="fixed inset-0 bg-on-surface/40 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-300" id="overlay" onclick="closeBottomSheet()"></div>
+<!-- Bottom Sheet -->
+<div class="fixed bottom-0 left-0 right-0 max-w-2xl mx-auto bg-surface-container-lowest rounded-t-3xl z-[70] p-6 shadow-2xl flex flex-col" id="bottom-sheet">
+<div class="w-12 h-1.5 bg-outline-variant rounded-full self-center mb-6"></div>
+<div class="mb-8">
+<h4 class="font-headline-lg text-headline-lg text-on-surface mb-1">Price Comparison</h4>
+<p class="text-primary font-bold" id="sheet-product-name">Heritage Carrots</p>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex items-center justify-between p-4 bg-surface rounded-xl border border-outline-variant/30">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">store</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Solaris Gold</p>
+<p class="text-body-sm text-on-surface-variant">In-stock guaranteed</p>
+</div>
+</div>
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-primary">$4.50</p>
+</div>
+<div class="flex items-center justify-between p-4 bg-white rounded-xl border border-outline-variant/30 opacity-60">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">local_shipping</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Whole Market</p>
+<p class="text-body-sm text-on-surface-variant">Estimated delivery</p>
+</div>
+</div>
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface-variant">$5.25</p>
+</div>
+<div class="flex items-center justify-between p-4 bg-white rounded-xl border border-outline-variant/30 opacity-60">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">shopping_basket</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Local Grocer</p>
+<p class="text-body-sm text-on-surface-variant">Pick-up only</p>
+</div>
+</div>
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface-variant">$4.80</p>
+</div>
+</div>
+<button class="w-full bg-on-surface text-white py-4 rounded-xl font-bold active-interaction" onclick="closeBottomSheet()">Close Comparison</button>
+</div>
+<script>
+        const sheet = document.getElementById('bottom-sheet');
+        const overlay = document.getElementById('overlay');
+        const sheetTitle = document.getElementById('sheet-product-name');
+
+        function openBottomSheet(productName) {
+            sheetTitle.innerText = productName;
+            sheet.classList.add('open');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.classList.add('opacity-100', 'pointer-events-auto');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBottomSheet() {
+            sheet.classList.remove('open');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            overlay.classList.remove('opacity-100', 'pointer-events-auto');
+            document.body.style.overflow = '';
+        }
+    </script>
+</body></html>
