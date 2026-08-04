@@ -150,10 +150,10 @@ class SupabaseService {
       final list = (response as List).cast<Map<String, dynamic>>();
       return list.map((map) => DeliveryOrderModel.fromMap(map)).toList();
     } catch (e, stack) {
-      print(
+      debugPrint(
         '[SupabaseService.fetchAvailableOrders] Error fetching available orders: $e',
       );
-      print(stack);
+      debugPrint(stack.toString());
       return [];
     }
   }
@@ -171,8 +171,8 @@ class SupabaseService {
       }
       return null;
     } catch (e, stack) {
-      print('[SupabaseService.fetchOrderById] Error fetching order: $e');
-      print(stack);
+      debugPrint('[SupabaseService.fetchOrderById] Error fetching order: $e');
+      debugPrint(stack.toString());
       return null;
     }
   }
@@ -188,10 +188,10 @@ class SupabaseService {
           .eq('id', orderId);
       return true;
     } catch (e, stack) {
-      print(
+      debugPrint(
         '[SupabaseService.updateOrderStatus] Error updating order status: $e',
       );
-      print(stack);
+      debugPrint(stack.toString());
       return false;
     }
   }
@@ -228,10 +228,10 @@ class SupabaseService {
 
       return true;
     } catch (e, stack) {
-      print(
+      debugPrint(
         '[SupabaseService.updateOrderItemStatus] Error updating order item status: $e',
       );
-      print(stack);
+      debugPrint(stack.toString());
       return false;
     }
   }
@@ -249,8 +249,8 @@ class SupabaseService {
           .eq('id', orderId);
       return true;
     } catch (e, stack) {
-      print('[SupabaseService.completeOrder] Error completing order: $e');
-      print(stack);
+      debugPrint('[SupabaseService.completeOrder] Error completing order: $e');
+      debugPrint(stack.toString());
       return false;
     }
   }

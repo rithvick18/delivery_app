@@ -20,7 +20,7 @@ class OnlineToggleBar extends StatelessWidget {
         color: isOnline ? Colors.green.shade700 : Colors.grey.shade800,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.15),
+            color: Colors.black.withValues(alpha: 0.15),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -77,7 +77,7 @@ class OnlineToggleBar extends StatelessWidget {
             Switch.adaptive(
               value: isOnline,
               onChanged: onToggle,
-              activeColor: Colors.white,
+              activeThumbColor: Colors.white,
               activeTrackColor: Colors.greenAccent.shade400,
             ),
           ],
