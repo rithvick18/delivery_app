@@ -23,6 +23,9 @@ migrate_working_dir/
 # VS Code
 .vscode/
 
+# Cline
+.clinerules/
+
 # Flutter / Dart / Pub
 **/doc/api/
 **/ios/Flutter/.last_build_id
