@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'providers/delivery_provider.dart';
+import 'services/supabase_service.dart';
 import 'theme/app_theme.dart';
 import 'views/main_navigation_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await SupabaseService.initialize();
   runApp(const SolarisDeliveryApp());
 }
 

@@ -9,10 +9,7 @@ import 'driver_account_screen.dart';
 class MainNavigationScreen extends StatefulWidget {
   final DeliveryProvider deliveryProvider;
 
-  const MainNavigationScreen({
-    super.key,
-    required this.deliveryProvider,
-  });
+  const MainNavigationScreen({super.key, required this.deliveryProvider});
 
   @override
   State<MainNavigationScreen> createState() => _MainNavigationScreenState();
@@ -37,8 +34,8 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
             isOnline: provider.driver.isOnline,
             selectedCategory: provider.filterCategory,
             onCategorySelected: provider.setFilterCategory,
-            onAcceptOrder: (id) {
-              final ok = provider.acceptOrder(id);
+            onAcceptOrder: (id) async {
+              final ok = await provider.acceptOrder(id);
               if (ok) {
                 setState(() {
                   _currentIndex = 1; // Auto switch to Active Delivery
@@ -58,8 +55,13 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
             onUpdateStatus: provider.updateOrderStatus,
             onMarkPicked: provider.markItemPicked,
             onMarkOutOfStock: (itemId, subName, subNote) =>
-                provider.markItemOutOfStock(itemId, substituteName: subName, substituteNote: subNote),
-            onCompleteDelivery: (proof) => provider.completeDeliveryWithProof(proof),
+                provider.markItemOutOfStock(
+                  itemId,
+                  substituteName: subName,
+                  substituteNote: subNote,
+                ),
+            onCompleteDelivery: (proof) =>
+                provider.completeDeliveryWithProof(proof),
           ),
           EarningsScreen(
             driver: provider.driver,
@@ -83,12 +85,17 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                     color: Colors.amber.shade400,
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  child: const Icon(Icons.electric_rickshaw, color: Colors.black),
+                  child: const Icon(
+                    Icons.electric_rickshaw,
+                    color: Colors.black,
+                  ),
                 ),
                 const SizedBox(width: 10),
                 Text(
                   'Solaris Driver',
-                  style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+                  style: theme.textTheme.titleLarge?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ],
             ),
