@@ -24,6 +24,10 @@ class _SolarisDeliveryAppState extends State<SolarisDeliveryApp> {
   void initState() {
     super.initState();
     _deliveryProvider = DeliveryProvider();
+    // Initialize with live data after widget is created
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _deliveryProvider.initialize();
+    });
   }
 
   @override
@@ -38,9 +42,7 @@ class _SolarisDeliveryAppState extends State<SolarisDeliveryApp> {
       title: 'Solaris Gold Delivery Partner',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      home: MainNavigationScreen(
-        deliveryProvider: _deliveryProvider,
-      ),
+      home: MainNavigationScreen(deliveryProvider: _deliveryProvider),
     );
   }
 }

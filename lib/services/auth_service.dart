@@ -3,7 +3,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class AuthService {
-  final SupabaseClient _supabase = Supabase.instance.client;
+  SupabaseClient get _supabase => Supabase.instance.client;
 
   User? get currentUser => _supabase.auth.currentUser;
 
@@ -23,11 +23,7 @@ class AuthService {
       final GoogleSignIn googleSignIn = GoogleSignIn(
         clientId: iosClientId,
         serverClientId: webClientId,
-        scopes: const [
-          'email',
-          'profile',
-          'openid',
-        ],
+        scopes: const ['email', 'profile', 'openid'],
       );
 
       final googleUser = await googleSignIn.signIn();
@@ -51,7 +47,9 @@ class AuthService {
 
       return response;
     } catch (e) {
-      print('[AuthService.signInWithGoogle] Error: $e. Attempting OAuth fallback...');
+      print(
+        '[AuthService.signInWithGoogle] Error: $e. Attempting OAuth fallback...',
+      );
       await _supabase.auth.signInWithOAuth(OAuthProvider.google);
       return null;
     }

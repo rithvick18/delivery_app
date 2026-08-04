@@ -4,7 +4,6 @@ import '../models/delivery_order.dart';
 import '../models/driver_profile.dart';
 import '../services/supabase_service.dart';
 import '../services/auth_service.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 class DeliveryProvider extends ChangeNotifier {
   final SupabaseService _supabaseService = SupabaseService();
@@ -30,8 +29,12 @@ class DeliveryProvider extends ChangeNotifier {
   String? get errorMessage => _errorMessage;
   String get filterCategory => _filterCategory;
 
-  DeliveryProvider() {
-    _initWithLiveData();
+  DeliveryProvider();
+
+  /// Call this method after the provider is created and the widget is mounted
+  /// to initialize with live data from Supabase
+  Future<void> initialize() async {
+    await _initWithLiveData();
   }
 
   Future<void> _initWithLiveData() async {
